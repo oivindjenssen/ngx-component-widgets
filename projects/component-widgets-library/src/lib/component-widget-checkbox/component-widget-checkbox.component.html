@@ -1,0 +1,11 @@
+<div class="component-widget-checkbox form-group">
+    <input [id]="options?.id" [name]="options?.id" type="checkbox" [formControl]="options?.formControl">
+    <label [for]="options?.id">{{ options.label }}</label>
+    <div *ngIf="options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)" class="alert alert-danger">
+        <ng-container *ngFor="let validation of options?.validations">
+            <p class="error-message" *ngIf="options?.formControl.errors[validation.key]">
+                {{ validation.message }}
+            </p>
+        </ng-container>
+    </div>
+</div>

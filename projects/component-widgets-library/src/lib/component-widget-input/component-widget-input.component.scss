@@ -1,0 +1,65 @@
+$input-color: #000000;
+$input-bg-color: #FFFFFF;
+$input-border-color: #000000;
+
+$input-invalid-border-color: red;
+
+$input-disabled-bg-color: #F1F1F1;
+$input-disabled-border-color:  #000000;
+
+$input-bg-color-active: #F0F5FF;
+$input-border-color-active: #80ACFF;
+
+.component-widget-input {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .form-label {
+        font-weight: 600;
+        font-size: 0.875em;
+        margin-bottom: 0.5rem;
+    }
+
+    input {
+        max-width: 21.875rem;
+        min-height: 2.3215rem;
+        font-size: 1em;
+        color: $input-color;
+        background-color: $input-bg-color;
+        border: 2px solid $input-border-color;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        border-radius: 3px;
+        -webkit-appearance: none;
+
+        &.input-invalid {
+            border-color: $input-invalid-border-color;
+            border-width: 2px;
+        }
+
+        &:focus,
+        &:active {
+            background-color: $input-bg-color-active;
+            border-color: $input-border-color-active;
+        }
+    }
+
+    input:disabled {
+        border-color: rgba(0, 0, 0, 0.5);
+        background-color: $input-disabled-bg-color;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover {
+        background-color: $input-bg-color;
+        border: 2px solid $input-border-color;
+        font-size: 1em;
+        color: $input-color;
+    }
+    input:-webkit-autofill:focus {
+        background-color: $input-bg-color-active;
+        border-color: $input-border-color-active;
+    }
+}

@@ -1,0 +1,5 @@
+<button class="component-widget-button" [attr.id]="options?.id" class="app-button" [type]="options?.type" [disabled]="options?.disabled" (click)="options?.onClick && options?.onClick(options?.onClickParams)" [ngClass]="{'icon-only': options?.iconOnly}" [attr.aria-label]="options?.label">
+    <span *ngIf="!options?.iconOnly && !options?.loading">{{ options.label }}</span>
+    <component-widget-loading-spinner [options]="loadingSpinnerOptions"></component-widget-loading-spinner>
+    <img *ngIf="options?.iconOnly" [src]="options?.icon">
+</button>

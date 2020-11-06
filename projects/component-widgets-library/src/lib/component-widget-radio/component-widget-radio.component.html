@@ -1,0 +1,16 @@
+<fieldset class="component-widget-radio form-group">
+    <legend class="form-label">{{ options?.label }}</legend>
+    <div class="radio-button-list">
+        <label *ngFor="let button of options?.buttons; let i = index;">
+            <input type="radio" [value]="button.value" [formControl]="options?.formControl" [name]="options.name">
+            <span>{{ button.label }}</span>
+        </label>
+    </div>
+    <div *ngIf="options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)" class="alert alert-danger">
+        <ng-container *ngFor="let validation of options?.validations">
+            <p class="error-message" *ngIf="options?.formControl.errors[validation.key]">
+                {{ validation.message }}
+            </p>
+        </ng-container>
+    </div>
+</fieldset>

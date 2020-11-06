@@ -1,0 +1,61 @@
+$select-color: #000000;
+$select-bg-color: #FFFFFF;
+$select-border-color: #000000;
+
+$select-invalid-border-color: red;
+
+$select-disabled-bg-color: #F1F1F1;
+$select-disabled-border-color:  #000000;
+
+$select-bg-color-active: #F0F5FF;
+$select-border-color-active: #80ACFF;
+
+.component-widget-select {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .form-label {
+        font-weight: 600;
+        font-size: 0.875em;
+        margin-bottom: 0.5rem;
+    }
+    
+    select {
+        max-width: 21.875rem;
+        min-height: 2.3215rem;
+        font-size: 1em;
+        color: $select-color;
+        background-color: $select-bg-color;
+        border: 2px solid $select-border-color;
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+        border-radius: 0;
+        -webkit-appearance: none;
+        &.select-invalid {
+            border-color: $select-invalid-border-color;
+            border-width: 2px;
+        }
+        &:focus, &:active {
+            background-color: $select-bg-color-active;
+            border-color: $select-border-color-active;
+        }
+    }
+
+    select:disabled {
+        border-color: rgba(0, 0, 0, 0.5);
+        background-color: $select-disabled-bg-color;
+    }
+
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover {
+        background-color: $select-bg-color;
+        border: 2px solid $select-border-color;
+        font-size: 1em;
+        color: $select-color;
+    }
+    select:-webkit-autofill:focus {
+        background-color: $select-bg-color-active;
+        border-color: $select-border-color-active;
+    }
+}

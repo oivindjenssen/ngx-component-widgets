@@ -1,0 +1,13 @@
+<div class="component-widget-select form-group">
+    <label class="form-label" [for]="options?.id">{{ options.label }}</label>
+    <select [id]="options?.id" [name]="options?.id" [formControl]="options?.formControl" [ngClass]="{'select-invalid': options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)}">
+        <option *ngFor="let item of options?.list" [value]="item[options?.valueProperty]">{{ item[options?.displayProperty] }}</option>
+    </select>
+    <div *ngIf="options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)" class="alert alert-danger">
+        <ng-container *ngFor="let validation of options?.validations">
+            <p class="error-message" *ngIf="options?.formControl.errors[validation.key]">
+                {{ validation.message }}
+            </p>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="component-widget-textarea form-group">
+    <label class="form-label" [for]="options?.id">{{ options.label }}</label>
+    <textarea class="form-control" [id]="options?.id" [name]="options?.id" [placeholder]="options?.placeholder ? options?.placeholder : ''" [formControl]="options?.formControl" (blur)="onBlur()" [ngClass]="{'textarea-invalid': options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)}"></textarea>
+    <div *ngIf="options?.formControl.invalid && (options?.formControl.dirty || options?.formControl.touched)" class="alert alert-danger">
+        <ng-container *ngFor="let validation of options?.validations">
+            <p class="error-message" *ngIf="options?.formControl.errors[validation.key]">
+                {{ validation.message }}
+            </p>
+        </ng-container>
+    </div>
+</div>
